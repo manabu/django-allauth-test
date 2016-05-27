@@ -42,3 +42,34 @@ Don't forget your admin password.
 ```
 python manage.py runserver 0.0.0.0:8000
 ```
+
+
+# Django allauth SETUP
+
+* [Installation — django-allauth 0.25.2 documentation](http://django-allauth.readthedocs.io/en/latest/installation.html)
+
+
+# SITE_IDについて
+
+これ確認しないとだな。
+多分最初にある、example.comにSITE_ID 1 が割り振られている感じがするのだが
+それとsettigns.pyを結びつけたりというのが大変そう。
+２つ目作ると２になるけど、確認の方法がまだわかっていない
+
+* [User Authentication with Django Allauth with Twitter](http://www.marinamele.com/user-authentication-with-twitter-using-django-allauth)
+
+# PROJECT_ROOT追加
+
+PROJECT_ROOT = os.path.normpath(os.path.dirname(os.path.abspath(__file__)))
+
+# INSTALLED_APPS 追加
+
+使わないappは、外しておいたほうが良い？
+
+# TEMPLATESのDIRS追加
+
+templates用の設定を追加する必要がある
+
+# AUTHENTICATION_BACKENDSの追加
+
+これが認証の方法を指定しているみたい
