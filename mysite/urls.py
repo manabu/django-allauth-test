@@ -23,5 +23,7 @@ urlpatterns = [
     url(r'^$', TemplateView.as_view(template_name='index.html')),
     #url("^$", direct_to_template, {"template": "index.html"}, name="home"),
     url(r'^accounts/profile/$', TemplateView.as_view(template_name='profile.html')),
+    # rest_auth
+    url(r'^rest-auth/', include('rest_auth.urls'))
 
 ]

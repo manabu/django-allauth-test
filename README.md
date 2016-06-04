@@ -238,3 +238,67 @@ SocialApp matching query does not exist.
 ```
 
 [Django: SocialApp matching query does not exist - Stack Overflow](http://stackoverflow.com/questions/15409366/django-socialapp-matching-query-does-not-exist "Django: SocialApp matching query does not exist - Stack Overflow")
+
+
+# django-rest-auth
+
+* [Tivix/django-rest-auth: This app makes it extremely easy to build Django powered SPA's (Single Page App) or Mobile apps exposing all registration and authentication related functionality as CBV's (Class Base View) and REST (JSON)](https://github.com/Tivix/django-rest-auth)
+
+django-rest-auth 0.7.0
+
+
+# requirements.txtに追加
+
+django-rest-auth==0.7.0
+
+# settings.py の INSTALLED_APPS に追加
+
+```
+'rest_framework',
+'rest_framework.authtoken',    
+'rest_auth',
+```
+
+# url.py に追加
+
+```
+url(r'^rest-auth/', include('rest_auth.urls'))
+```
+
+# settings.py の INSTALLED_APPS に、githubを追加
+
+```
+'allauth.socialaccount.providers.github',
+```
+
+# python manage.py migrate
+
+アプリを追加したので、migrateが必要みたい
+
+```
+You have unapplied migrations; your app may not work properly until they are applied.
+Run 'python manage.py migrate' to apply them.
+```
+
+ということなので
+
+```
+python manage.py migrate
+```
+
+# github の登録
+
+これは twitter と一緒。
+
+twitter は OAuth 1.0 なので、2.0に対応しているものとして、github　を選んだ
+
+## github でアプリケーションを作る
+
+callback URL に
+http://127.0.0.1:8000/rest_auth
+を指定した。
+これでも、ログインはできた。
+
+## adminでSocial appを作る
+
+## ログインのテストをする
